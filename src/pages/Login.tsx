@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useMutation} from "../hooks/useMutation";
 import {useAuth} from "../hooks/useAuth.ts";
 import type {LoginCredentials, LoginResponse} from "../types/Login.ts";
+import { Info } from "lucide-react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -73,6 +74,16 @@ export default function Login() {
               <p className="mt-3 text-gray leading-7">
                 Entre tes identifiants pour accéder à ton compte Abyss.
               </p>
+            </div>
+
+            <div className="mb-8 rounded-2xl border border-secondary/20 bg-secondary/5 p-4 shadow-sm">
+              <div className="flex gap-3">
+                <Info className="text-secondary shrink-0 mt-0.5" size={20} />
+                <div className="text-sm text-primary/80 leading-relaxed">
+                  <span className="font-bold text-primary block mb-0.5">Note d'hébergement</span>
+                  Ce projet est hébergé sur un service gratuit. Lors de votre connexion, <strong>un délai de chargement allant jusqu'à 1 minute</strong> peut se produire le temps que le serveur "se réveille". Merci de votre patience !
+                </div>
+              </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">

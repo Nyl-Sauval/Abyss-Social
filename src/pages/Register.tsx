@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useMutation} from "../hooks/useMutation";
 import {useAuth} from "../hooks/useAuth.ts";
 import type {RegisterQuery, RegisterResponse} from "../types/Register.ts";
+import { Info } from "lucide-react";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -72,6 +73,16 @@ export default function Register() {
               <p className="mt-3 text-gray leading-7">
                 Remplis les champs ci-dessous pour commencer à utiliser Abyss.
               </p>
+            </div>
+
+            <div className="mb-8 rounded-2xl border border-secondary/20 bg-secondary/5 p-4 shadow-sm">
+              <div className="flex gap-3">
+                <Info className="text-secondary shrink-0 mt-0.5" size={20} />
+                <div className="text-sm text-primary/80 leading-relaxed">
+                  <span className="font-bold text-primary block mb-0.5">Note d'hébergement</span>
+                  Ce projet est hébergé sur un service gratuit. Lors de votre inscription, <strong>un délai de chargement allant jusqu'à 1 minute</strong> peut se produire le temps que le serveur "se réveille". Merci de votre patience !
+                </div>
+              </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
