@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@theme {
+  --color-abyss-black: #020617;
+  --color-abyss-dark: #0f172a;
+  --color-abyss-blue: #1e293b;
+  --color-ocean-deep: #075985;
+  --color-ocean-teal: #0d9488;
+  --color-ocean-coral: #fb7185;
+  --color-ocean-sand: #f0f9ff;
+
+  --font-sans: "Inter", "system-ui", "-apple-system", "sans-serif";
+}
+
+@layer base {
+  body {
+    @apply bg-light text-ocean-sand font-sans antialiased selection:bg-ocean-teal/30;
+    background-image:
+      radial-gradient(at 0% 0%, hsla(200, 100%, 10%, 0.5) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(180, 100%, 5%, 0.5) 0px, transparent 50%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/60 backdrop-blur-md border border-abyss-blue/5 shadow-xl;
+  }
+
+  .glass-hover {
+    @apply hover:bg-white/80 hover:border-abyss-blue/10 transition-all duration-300;
+  }
+
+  .btn-ocean {
+    @apply px-4 py-2 rounded-full font-medium transition-all duration-200 active:scale-95 flex items-center gap-2;
+  }
+
+  .btn-primary {
+    @apply bg-ocean-teal text-white hover:bg-ocean-teal/80 shadow-lg shadow-ocean-teal/20;
+  }
+}
