@@ -72,7 +72,15 @@ export function useMutation<T, R>(
       });
 
       if (!response.ok) {
-        throw new Error(`Mutation error: ${response.status}`);
+        let errorMessage = `Erreur: ${response.status}`;
+        try {
+          const errorData = await response.json();
+          // Le backend renvoie généralement l'erreur dans un champ "error" ou "message"
+          errorMessage = errorData.error || errorData.message || errorData.error_description || errorMessage;
+        } catch (e) {
+          // Si on ne peut pas parser le JSON, on garde le message générique
+        }
+        throw new Error(errorMessage);
       }
 
       const result = response.status !== 204 ? await response.json() : null;
